@@ -3,10 +3,11 @@ class Util
 {
 public:
 	static void createMatrixFile(char* name, int rows, int columns);
-	double** readMatrix(char* name);
-	void writeMatrixInFile(char* name, double** result, int rows, int columns);
-	double** createEmptyMatrix(int rows, int columns);
-	double* readApproximation(char* name);
+	int** readMatrix(char* name);
+	void writeMatrixInFile(char* name, int** result, int rows, int columns);
+	int** createEmptyMatrix(int rows, int columns);
+	int* readApproximation(char* name);
+	void writeResult(char* name,int result);
 	Util() {}
 };
 
