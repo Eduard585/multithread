@@ -12,7 +12,7 @@ Util util;
 long long rows1 = 1500;// Количество строк первой матрицы
 long long columns2 = 1500;// Количество столбцов второй матрицы
 long long inter21 = 1500; // Количество столбцов первой матрицы и строк для второй
-int threadsNum = 12;
+int threadsNum = 8;
 int chunkSize = 1;
 
 void multiply(int** a, int** b, int** c);
@@ -76,7 +76,7 @@ void multiplyWithParallel(int** a, int** b, int** c) {
 
 #pragma omp parallel shared(c)
 	{
-#pragma omp for schedule(static,1)
+#pragma omp for schedule(static,chunkSize)
 		for (int row = 0; row < rows1; row++) {
 			for (int column = 0; column < columns2; column++) {
 				c[row][column] = 0;
